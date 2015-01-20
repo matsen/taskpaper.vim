@@ -25,12 +25,12 @@ endif
 " When moving a task, should the cursor follow or stay in the same place
 " (default: follow)
 if !exists('g:task_paper_follow_move')
-    let g:task_paper_follow_move = 1 
+    let g:task_paper_follow_move = 1
 endif
 
 " Hide @done tasks when searching tags
 if !exists('g:task_paper_search_hide_done')
-    let g:task_paper_search_hide_done = 0 
+    let g:task_paper_search_hide_done = 0
 endif
 
 " Add '@' to keyword character set so that we can complete contexts as keywords
@@ -75,6 +75,8 @@ if !exists("no_plugin_maps") && !exists("no_taskpaper_maps")
     \       :<C-u>call taskpaper#search_tag('cancelled')<CR>
     nnoremap <silent> <buffer> <Plug>TaskPaperToggleCancelled
     \       :call taskpaper#toggle_tag('cancelled', taskpaper#date())<CR>
+    nnoremap <silent> <buffer> <Plug>TaskPaperToggleHeadway
+    \       :call taskpaper#toggle_tag('headway', '')<CR>
     nnoremap <silent> <buffer> <Plug>TaskPaperToggleDone
     \       :call taskpaper#toggle_tag('done', taskpaper#date())<CR>
     nnoremap <silent> <buffer> <Plug>TaskPaperToggleToday
@@ -104,6 +106,7 @@ if !exists("no_plugin_maps") && !exists("no_taskpaper_maps")
     nmap <buffer> <Leader>td <Plug>TaskPaperToggleDone
     nmap <buffer> <Leader>tt <Plug>TaskPaperToggleToday
     nmap <buffer> <Leader>tx <Plug>TaskPaperToggleCancelled
+    nmap <buffer> <Leader>th <Plug>TaskPaperToggleHeadway
     nmap <buffer> <Leader>tm <Plug>TaskPaperMoveToProject
 
     if mapcheck("o", "n") == ''
